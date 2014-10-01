@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# Testing comitting
-
 """ Assignment 1, Exercise 1, INF1340, Fall, 2014. Grade to gpa conversion
 
 This module contains one function grade_to_gpa. It can be passed a parameter
