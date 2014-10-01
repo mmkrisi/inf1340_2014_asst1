@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# Krisi trying to commit
-# Test 2 Krisi
 
 """ Assignment 1, Exercise 1, INF1340, Fall, 2014. Grade to gpa conversion
 
@@ -13,7 +11,7 @@ Example:
     $ python exercise1.py
 
 """
-#Test2
+
 __author__ = 'Susan Sim'
 __email__ = "ses@drsusansim.org"
 
