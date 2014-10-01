@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # Krisi trying to commit
+# Test 2 Krisi
 
 """ Assignment 1, Exercise 1, INF1340, Fall, 2014. Grade to gpa conversion
 
