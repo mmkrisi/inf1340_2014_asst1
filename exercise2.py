@@ -45,24 +45,22 @@ def checksum (upc):
     # return True if they are equal, False otherwise
 
     if isinstance(upc, str):
-        print('UPC is a string')
+        if len(upc) == 12:
+            upc = upc.split(',')
+            oddsum = upc[0, 2, 4, 6, 8, 10, 12]
+            oddsum_times_3 = oddsum * 3
+            evensum = upc[1, 3, 5, 7, 9]
+            totalsum = oddsum_times_3 + evensum
+            checksum = totalsum % 10
+            if checksum != 0:
+                True
+            else:
+                checksum = 10 - checksum
+        else:
+            raise ValueError("Invalid length")
     else:
         raise TypeError
 
-    if len(upc) = 12
-        print('UPC is 12 characters')
     else:
-        raise ValueError
-
-    oddsum = (upc[0] + upc[2] + upc[4] + upc[6] + upc[8] + upc[10] + upc[12])
-    evensum = (upc[1] + upc[3] + upc[5] + upc[7] + upc[9] + upc[11])
-
-    if len(upc) != 12 raise ValueError("Invalid length")
-    else:
-        (((oddsum * 3) + evensum) % 10)
-
-
-
-
     return False
 
