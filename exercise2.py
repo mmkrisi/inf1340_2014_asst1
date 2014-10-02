@@ -59,8 +59,9 @@ def checksum (upc):
         else:
             raise ValueError("Invalid length")
     else:
-        raise TypeError
+        raise TypeError("Invalid type")
+    return True
 
-    else:
-    return False
+
+   
 
