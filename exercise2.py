@@ -44,5 +44,21 @@ def checksum (upc):
 
     # return True if they are equal, False otherwise
 
+    if type(upc) is str:
+    else:
+        raise TypeError
+
+    if len(upc) = 12
+    else:
+        raise ValueError
+
+    oddsum = (upc[0] + upc[2] + upc[4] + upc[6] + upc[8] + upc[10] + upc[12])
+    evensum = (upc[1] + upc[3] + upc[5] + upc[7] + upc[9] + upc[11])
+
+    if len(upc) != 12 raise ValueError("Invalid length")
+    elif:
+        return (((oddsum * 3) + evensum) % 10)
+
+
     return False
 
