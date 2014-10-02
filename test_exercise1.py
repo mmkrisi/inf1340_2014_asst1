@@ -14,7 +14,6 @@ __status__ = "Prototype"
 import pytest
 from exercise1 import grade_to_gpa
 
-
 def test_letter_grade():
     """
     Letter grade inputs
