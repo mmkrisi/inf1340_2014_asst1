@@ -49,13 +49,14 @@ def grade_to_gpa(grade):
 
     if type(grade) is str:
         print ("letter") #remove this line once the code is implemented
-        if grade in list_of_letter_grade: #check that the grade is one of the accepted values
-            gpa = list_of_letter_grade[grade] #assign grade to letter_grade
+        if grade in letter_grade_gpa_dictionary.keys(): #check that the grade is one of the accepted values
+            return letter_grade_gpa_dictionary.get (grade) #assign grade to letter_grade
         else:
-            raise TypeError("Invalid letter grade passed as a parameter.")
+            raise ValueError("Invalid letter grade passed as a parameter.")
+
     elif type(grade) is int:
-        print("mark")# remove this line once the code is implemented
-        if 0 <= grade <= 100: # check that grade is in the accepted range
+        print("mark")#remove this line once the code is implemented
+        if 0 <= grade <= 100:# check that grade is in the accepted range
             if 90 <= grade <= 100: # convert the numeric grade to a letter grade
                 grade = list_of_letter_grade[0]
             elif 85 <= grade < 90:
@@ -68,14 +69,14 @@ def grade_to_gpa(grade):
                 grade = list_of_letter_grade[4]
             elif 70 <= grade < 73:
                 grade = list_of_letter_grade[5]
-            elif 0 <= grade < 70:
+            elif 0 <= grade < 70: # alternative: else:
                 grade = list_of_letter_grade[6]
-            gpa = list_of_letter_grade[grade] # assign the value to letter_grade
+            return letter_grade_gpa_dictionary.get (grade) #assign grade to letter_grade
 
-        # alternative is to do a for loop - started with (for i in xxxx )# for loops and a break if the number is found
+        #KMM - alternative is to do a for loop - started with (for i in xxxx )and use a break if the number is found
         # hint: letter_grade = mark_to_letter(grade)
         else:
-            raise TypeError ("Invalid percentage grade passed as a parameter.")
+            raise ValueError ("Invalid percentage grade passed as a parameter.")
     else:  # raise a TypeError exception
        raise TypeError("Invalid type passed as parameter")
 
