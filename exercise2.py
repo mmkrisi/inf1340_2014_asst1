@@ -44,11 +44,13 @@ def checksum (upc):
 
     # return True if they are equal, False otherwise
 
-    if type(upc) is str:
+    if isinstance(upc, str):
+        print('UPC is a string')
     else:
         raise TypeError
 
     if len(upc) = 12
+        print('UPC is 12 characters')
     else:
         raise ValueError
 
@@ -56,8 +58,10 @@ def checksum (upc):
     evensum = (upc[1] + upc[3] + upc[5] + upc[7] + upc[9] + upc[11])
 
     if len(upc) != 12 raise ValueError("Invalid length")
-    elif:
-        return (((oddsum * 3) + evensum) % 10)
+    else:
+        (((oddsum * 3) + evensum) % 10)
+
+
 
 
     return False
