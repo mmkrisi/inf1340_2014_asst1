@@ -17,7 +17,7 @@ __status__ = "Prototype"
 # imports one per line
 
 
-def checksum (upc):
+def checksum(upc):
     """
     Checks if the digits in a UPC is consistent with checksum
 
@@ -44,23 +44,30 @@ def checksum (upc):
 
     # return True if they are equal, False otherwise
 
-    if isinstance(upc, str): #is it the same as: if type(upc) is str:
+    if type(upc) is str:
         if len(upc) == 12:
-            upc = upc.split(',')
-            oddsum = upc[0, 2, 4, 6, 8, 10, 12]
-            oddsum_times_3 = oddsum * 3
-            evensum = upc[1, 3, 5, 7, 9]
-            totalsum = oddsum_times_3 + evensum
-            checksum = totalsum % 10
-            if checksum != 0:
+
+            list(upc) # turn string into a list of chars #list(string)
+            for char in (upc):
+                char = int[upc] # turn your list of chars into a list of ints # int('1')
+
+            # upc = upc.split(',')
+
+            # sum a slice of the list
+            odd_sum = upc[0] + upc[2] + upc4, 6, 8, 10, 12]
+            odd_sum_times_3 = odd_sum * 3
+            even_sum = upc[1, 3, 5, 7, 9]
+            total_sum = odd_sum_times_3 + even_sum
+            check_sum_modulo = total_sum % 10
+            if check_sum_modulo != 0:
                 True
             else:
-                checksum = 10 - checksum
+                check_sum_modulo = 10 - check_sum_modulo
         else:
             error_length = len(upc) - 12
             if error_length < 0:
                     error_length = abs(error_length)
-                    raise ValueError ("Invalid length of UPC number: short by", error_length, "numbers") # showing how many digits under are input
+                    raise ValueError("Invalid length of UPC number: short by", error_length, "numbers") # showing how many digits under are input
             else:
                     raise ValueError("Invalid length of UPC number: over by", error_length, "numbers") #we need to add how many digits over 12 are input
     else:
