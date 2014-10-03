@@ -44,7 +44,7 @@ def checksum (upc):
 
     # return True if they are equal, False otherwise
 
-    if isinstance(upc, str):
+    if isinstance(upc, str): #is it the same as: if type(upc) is str:
         if len(upc) == 12:
             upc = upc.split(',')
             oddsum = upc[0, 2, 4, 6, 8, 10, 12]
@@ -57,7 +57,12 @@ def checksum (upc):
             else:
                 checksum = 10 - checksum
         else:
-            raise ValueError("Invalid length") #we need to add how many digits are over/under! KMM
+            error_length = len(upc) - 12
+            if error_length < 0:
+                    error_length = abs(error_length)
+                    raise ValueError ("Invalid length of UPC number: short by", error_length, "numbers") # showing how many digits under are input
+            else:
+                    raise ValueError("Invalid length of UPC number: over by", error_length, "numbers") #we need to add how many digits over 12 are input
     else:
         raise TypeError("Invalid type")
     return True
