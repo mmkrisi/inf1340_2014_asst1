@@ -11,5 +11,5 @@ def decide_rps(player1, player2):
     if ((player1, player2)) in decide_rps:
         return "1"
     else:
-        return player2 + "2"
+        return "2"
 
