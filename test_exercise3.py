@@ -8,10 +8,6 @@ def test_decide_rps():
     """
     Inputs that are the correct format and length
     """
-    #assert decide_rps("Rock", "Paper") == 2
-    #assert decide_rps("Scissors", "Scissors") == 0
-    #assert decide_rps("Rock", "Scissors") == 1
-    # other tests
 
     # Tie:
     assert decide_rps("Scissors", "Scissors") == 0
@@ -33,18 +29,22 @@ def test_input():
     Incorrect inputs
     """
     with pytest.raises(ValueError):
-        #something here
         decide_rps("Apple", "Ball")
         decide_rps("Roc", "Papr")
         decide_rps("Scissors", "Papper")
         decide_rps("Ppr", "Scissors")
         decide_rps("", "Scissors")
         decide_rps("Rock", "")
+        decide_rps("Scissor," "Paper")
+        decide_rps("Scissor", "Scissor")
+        decide_rps("Stone", "Stone")
+        decide_rps("Scissor", "Stone")
     with pytest.raises(TypeError):
         decide_rps(2, 5)
         decide_rps("Rock", 12)
         decide_rps("Paper", 6.0)
         decide_rps(8.4, 12.2)
+        decide_rps(.12, .02)
         decide_rps(9.5, "Paper")
         decide_rps("", "")
         decide_rps()
