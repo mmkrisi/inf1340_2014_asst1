@@ -54,16 +54,4 @@ def decide_rps(player1, player2):
             else:
                 raise ValueError("The value for Player2 is incorrect") #return a ValueError when invalid string input for Player2
 
-        # rps_results = {}
-        # rps_results[("Stone", "Stone")] = 0
-        # rps_results[("Paper", "Paper")] = 0
-        # rps_results[("Scissors", "Scissors")] = 0
-        # rps_results[("Rock", "Scissors")] = 1
-        # rps_results[("Scissors", "Paper")] = 1
-        # rps_results[("Paper", "Rock")] = 1
-        # rps_results[("Rock", "Paper")] = 2
-        # rps_results[("Paper", "Scissors")] = 2
-        # rps_results[("Scissors", "Rock")] = 2
 
-
-        #print(rps_results[("Paper", "Stone")])
