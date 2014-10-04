@@ -27,7 +27,7 @@ def checksum(upc):
         False, otherwise
     :raises:
         TypeError if input is not a string
-        ValueError if string is the wrong length (with error string stating how many digits are over or under
+        ValueError if string is the wrong length (with error string stating how many digits are over or under)
     """
 
     # check type of input
@@ -44,35 +44,76 @@ def checksum(upc):
 
     # return True if they are equal, False otherwise
 
-    if type(upc) is str:
-        if len(upc) == 12:
-
-            list(upc) # turn string into a list of chars #list(string)
-            for char in (upc):
-                char = int[upc] # turn your list of chars into a list of ints # int('1')
-
-            # upc = upc.split(',')
-
-            # sum a slice of the list
-            odd_sum = upc[0] + upc[2] + upc4, 6, 8, 10, 12]
-            odd_sum_times_3 = odd_sum * 3
-            even_sum = upc[1, 3, 5, 7, 9]
-            total_sum = odd_sum_times_3 + even_sum
-            check_sum_modulo = total_sum % 10
-            if check_sum_modulo != 0:
-                True
-            else:
-                check_sum_modulo = 10 - check_sum_modulo
-        else:
-            error_length = len(upc) - 12
-            if error_length < 0:
-                    error_length = abs(error_length)
-                    raise ValueError("Invalid length of UPC number: short by", error_length, "numbers") # showing how many digits under are input
-            else:
-                    raise ValueError("Invalid length of UPC number: over by", error_length, "numbers") #we need to add how many digits over 12 are input
-    else:
+    if type(upc) is not str:
         raise TypeError("Invalid type")
-    return True
+
+    # if we get this far, we know that upc is a string
+    if len(upc) != 12:
+        error_length = len(upc) - 12
+        if error_length < 0:
+            error_length = abs(error_length)
+            raise ValueError("Invalid length of UPC number: short by", error_length, "digits") # showing how many digits under 12 are inputted
+        else:
+            raise ValueError("Invalid length of UPC number: over by", error_length, "digits") # we need to add how many digits over 12 are inputted
+
+    # if we get this far, we know that upc is a string of length 12
+    # Now we can start computing
+
+    print(upc) # just checking what we get printed
+    input_list = list(upc) # turn string into a list of chars
+    print(input_list) #just checking what we have so far
+    for(index, char) in enumerate(input_list):
+        input_list[index] = int(char)
+    odd_sum = sum(input_list[0::2])
+    print(odd_sum)
+    odd_sum_triple = odd_sum * 3
+    print(odd_sum_triple)
+    even_sum = sum(input_list[1:11:2])
+    print(even_sum)
+    total_sum = odd_sum_triple + even_sum
+    print(total_sum)
+    check_sum_modulo = total_sum % 10
+    print(check_sum_modulo)
+    if check_sum_modulo == 0:
+        return True
+    elif check_sum_modulo !=0:
+        check_sum_modulo = 10 - check_sum_modulo
+        print(check_sum_modulo)
+        if check_sum_modulo == input_list[11]:
+            return True
+        else:
+            return False
+
+#     if type(upc) is str:
+#         if len(upc) == 12:
+#
+#             list(upc) # turn string into a list of chars #list(string)
+#             for char in (upc):
+#                 char = int[upc] # turn your list of chars into a list of ints # int('1')
+#
+#             # upc = upc.split(',')
+#
+#             # sum a slice of the list
+#             odd_sum = upc[0] + upc[2] + upc4, 6, 8, 10, 12]
+#             odd_sum_times_3 = odd_sum * 3
+#             even_sum = upc[1, 3, 5, 7, 9]
+#             total_sum = odd_sum_times_3 + even_sum
+#             check_sum_modulo = total_sum % 10
+#             if check_sum_modulo != 0:
+#                 True
+#             else:
+#                 check_sum_modulo = 10 - check_sum_modulo
+#         else:
+#             error_length = len(upc) - 12
+#             if error_length < 0:
+#                     error_length = abs(error_length)
+#                     raise ValueError("Invalid length of UPC number: short by", error_length, "numbers") # showing how many digits under are input
+#             else:
+#                     raise ValueError("Invalid length of UPC number: over by", error_length, "numbers") #we need to add how many digits over 12 are input
+#     else:
+#         raise TypeError("Invalid type")
+# return True
+
 
 
    

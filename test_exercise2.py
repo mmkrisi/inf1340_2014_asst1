@@ -16,6 +16,19 @@ __status__ = "Prototype"
 import pytest
 from exercise2 import checksum
 
+def test_input():
+    """
+    Inputs that are the incorrect format and length
+    """
+    with pytest.raises(TypeError):
+        checksum(1.0)
+        checksum(7869639068306306306)
+
+    with pytest.raises(ValueError):
+        checksum("1")
+        checksum("1234567890")
+
+    # other tests
 
 def test_checksum():
     """
@@ -27,18 +40,6 @@ def test_checksum():
     # other tests
 
 
-def test_input():
-    """
-    Inputs that are the incorrect format and length
-    """
-    with pytest.raises(TypeError):
-        checksum(1.0)
-        checksum(786936224306)
 
-    with pytest.raises(ValueError):
-        checksum("1")
-        checksum("1234567890")
-
-    # other tests
 
 # add functions for any other tests
