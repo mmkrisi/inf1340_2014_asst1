@@ -65,6 +65,8 @@ def test_percentage_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa(101)
+
+    with pytest.raises(ValueError):
         grade_to_gpa(-1)
 
 
