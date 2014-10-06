@@ -43,9 +43,9 @@ def grade_to_gpa(grade):
 
     letter_grade = ""
     gpa = 0.0
-    #dictionary with letter grades and gpa to use for assigning grade to letter_grade
+    # dictionary with letter grades and gpa to use for assigning grade to letter_grade
     letter_grade_gpa_dictionary = {"A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7, "FZ": 0.0}
-    #list of letter grades to use when input is an int
+    # list of letter grades to use when input is an int
     list_of_letter_grade = ["A+", "A", "A-", "B+", "B", "B-", "FZ"]
 
     if type(grade) is str:
@@ -74,7 +74,7 @@ def grade_to_gpa(grade):
                 grade = list_of_letter_grade[5]
             elif 0 <= grade < 70:
                 grade = list_of_letter_grade[6]
-             #assign grade to letter_grade
+             # assign grade to letter_grade
             return letter_grade_gpa_dictionary.get(grade)
         else:
             raise ValueError ("Invalid percentage grade passed as a parameter.")
