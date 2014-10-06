@@ -43,21 +43,24 @@ def grade_to_gpa(grade):
 
     letter_grade = ""
     gpa = 0.0
+    #dictionary with letter grades and gpa to use for assigning grade to letter_grade
     letter_grade_gpa_dictionary = {"A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7, "FZ": 0.0}
-    #list of top number in grade range
-    list_of_letter_grade = ["A+", "A", "A-", "B+", "B", "B-", "FZ"]#list of letter grades to use when input is an int
+    #list of letter grades to use when input is an int
+    list_of_letter_grade = ["A+", "A", "A-", "B+", "B", "B-", "FZ"]
 
     if type(grade) is str:
-        print ("letter") #remove this line once the code is implemented
-        if grade in letter_grade_gpa_dictionary.keys(): #check that the grade is one of the accepted values
-            return letter_grade_gpa_dictionary.get (grade) #assign grade to letter_grade
+        #check that the grade is one of the accepted values
+        if grade in letter_grade_gpa_dictionary.keys():
+            #assign grade to letter_grade
+            return letter_grade_gpa_dictionary.get(grade)
         else:
             raise ValueError("Invalid letter grade passed as a parameter.")
 
     elif type(grade) is int:
-        print("mark")#remove this line once the code is implemented
-        if 0 <= grade <= 100:# check that grade is in the accepted range
-            if 90 <= grade <= 100: # convert the numeric grade to a letter grade
+        # check that grade is in the accepted range
+        if 0 <= grade <= 100:
+            # write a long if-statement to convert numeric grade to letter_grade
+            if 90 <= grade <= 100:
                 grade = list_of_letter_grade[0]
             elif 85 <= grade < 90:
                 grade = list_of_letter_grade[1]
@@ -69,20 +72,18 @@ def grade_to_gpa(grade):
                 grade = list_of_letter_grade[4]
             elif 70 <= grade < 73:
                 grade = list_of_letter_grade[5]
-            elif 0 <= grade < 70: # alternative: else:
+            elif 0 <= grade < 70:
                 grade = list_of_letter_grade[6]
-            return letter_grade_gpa_dictionary.get (grade) #assign grade to letter_grade
-
-        #KMM - alternative is to do a for loop - started with (for i in xxxx )and use a break if the number is found
-        # hint: letter_grade = mark_to_letter(grade)
+             #assign grade to letter_grade
+            return letter_grade_gpa_dictionary.get(grade)
         else:
             raise ValueError ("Invalid percentage grade passed as a parameter.")
-    else:  # raise a TypeError exception
+    else:
        raise TypeError("Invalid type passed as parameter")
 
-    # write a long if-statement to convert letter_grade
-    # assign the value to gpa
+
     if letter_grade in letter_grade_gpa_dictionary:
+        # assign the value to gpa
         gpa = letter_grade_gpa_dictionary[grade]
 
     return gpa
